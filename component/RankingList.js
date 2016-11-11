@@ -50,9 +50,9 @@ class RankingItem extends Component {
 		return (
 			<li><img src={this.props.data.avatar}/><a>{this.props.data.name}</a><span>+{this.props.data.score}</span></li>
 		)
-	}
+	};
 
-}
+};
 
 class RankingList extends Component {
 	constructor(){
@@ -60,15 +60,15 @@ class RankingList extends Component {
 		this.state = {
 			"rank_type":"TODAY",
 			"ranking_list":DATA_RANKINGLIST,
-		}
+		};
+		this.handleClick = this.handleClick.bind(this);
 	};
 	handleClick(event){
 		var val = event.target.getAttribute("value");
-		console.log(this);
 		this.setState({"rank_type":val});
 
-		var list = DATA_RANKINGLIST.reverse()
-		this.setState("ranking_list":list);
+		var list = DATA_RANKINGLIST.reverse();
+		this.setState({"ranking_list":list});
 	};
 	render(){
 		return (
@@ -76,9 +76,9 @@ class RankingList extends Component {
 				<div className="ranking_header clearfix">
 					<h2 className="fl">排行榜</h2>
 					<div className="ranking_type fr">
-						<a className={this.state.rank_type == "TODAY" ? "active" : ""} onClick={this.handleClick.bind(this)} value="TODAY">今天</a>
+						<a className={this.state.rank_type == "TODAY" ? "active" : ""} onClick={this.handleClick} value="TODAY">今天</a>
 						· 
-						<a className={this.state.rank_type == "WEEK" ? "active" : ""} onClick={this.handleClick.bind(this)} value="WEEK">本周</a>
+						<a className={this.state.rank_type == "WEEK" ? "active" : ""} onClick={this.handleClick} value="WEEK">本周</a>
 						·
 						<a>更多</a>
 					</div>
