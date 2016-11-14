@@ -1,5 +1,5 @@
 import React from "react";
-import { toggleQuestionListType } from "../action/action.js";
+import { toggleQuestionListType,renderQuestionList } from "../action/action.js";
 import { store } from "../reducers/questionList.js";
 
 var DATA_QUESTION_LIST = [{
@@ -168,6 +168,7 @@ const QuestionContent = React.createClass({
 
 		/* redux test code */
 		store.dispatch(toggleQuestionListType(question_type));
+		store.dispatch(renderQuestionList(question_type));
 		this.setState(store.getState());
 		console.log(store);
 		/* redux test code */
@@ -840,7 +841,7 @@ const QuestionContent = React.createClass({
 		// this.getQuestionList(this.state.question_type);
 	},
 	render:function(){
-
+		console.log(this.state);
 		var active = this.state.question_type;
 		return (
 			<div>

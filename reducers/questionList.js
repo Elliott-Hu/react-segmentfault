@@ -1,17 +1,15 @@
-import { toggleQuestionListType } from "../action/action.js";
-import { createStore } from "redux";
+// import { toggleQuestionListType,renderList } from "../action/action.js";
+import { createStore,combineReducers } from "redux";
 
 var initialState = {
 	question_type:0,
 	question_list:[],
 }
 
-function questionList(state = initialState, action){
+function question_list(state = initialState.question_list,action){
 	switch (action.type){
-		case "TOGGLE_QUESTION_LIST_TYPE":
-			return Object.assign({},state,{
-				question_type:action.code,
-				question_list:[{
+		case "RENDER_QUESTION_LIST":
+			var	question_list = [{
 					"title":"tcp_tw_reuse 和 tcp_tw_recycle 在原理上有什么区别？",
 					"rank_vote":0,
 					"rank_answer":0,
@@ -30,7 +28,7 @@ function questionList(state = initialState, action){
 					"tags":["c"],
 					"status":0,
 				}]
-			})
+			return question_list;
 			break;
 		default:
 			return state;
@@ -38,5 +36,18 @@ function questionList(state = initialState, action){
 	}
 }
 
-export let store = createStore(questionList);
+function question_type(state = initialState.question_type, action){
+	switch (action.type){
+		case "TOGGLE_QUESTION_LIST_TYPE":
+			return action.code;
+			break;
+		default:
+			return state;
+			break;
+	}
+}
+
+const questionContent = combineReducers({question_type,question_list})
+
+export let store = createStore(questionContent);
 
