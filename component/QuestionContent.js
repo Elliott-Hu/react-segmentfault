@@ -1,4 +1,6 @@
 import React from "react";
+import { toggleQuestionListType } from "../action/action.js";
+import { store } from "../reducers/questionList.js";
 
 var DATA_QUESTION_LIST = [{
 	"title":"为什么我的sublime安装插件困难重重",
@@ -144,16 +146,34 @@ const QuestionContent = React.createClass({
 		}
 	},
 	getInitialState:function(){
-		return {
-			"question_type":0,
-			"question_list":[],
-		}
+		/* redux test code */ 
+		return store.getState();
+		/* redux test code */ 
+
+		/* backups code */
+		// return {
+		// 	"question_type":0,
+		// 	"question_list":[],
+		// }
+		/* backups code */
 	},
 	handleClick:function(event){
 		var question_type = parseInt(event.target.getAttribute("value"),10)
-		this.setState({"question_type":question_type});
-		console.log(this.state.question_list);
-		this.getQuestionList(question_type);
+		/* backups code */
+		// this.setState({"question_type":question_type});
+		// console.log(this.state.question_list);
+		// this.getQuestionList(question_type);
+		/* backups code */
+
+
+		/* redux test code */
+		store.dispatch(toggleQuestionListType(question_type));
+		this.setState(store.getState());
+		console.log(store);
+		/* redux test code */
+
+
+
 	},		
 	getQuestionList:function(type){
 		var type = type;
@@ -817,9 +837,10 @@ const QuestionContent = React.createClass({
 		}
 	},
 	componentDidMount:function(){
-		this.getQuestionList(this.state.question_type);
+		// this.getQuestionList(this.state.question_type);
 	},
 	render:function(){
+
 		var active = this.state.question_type;
 		return (
 			<div>

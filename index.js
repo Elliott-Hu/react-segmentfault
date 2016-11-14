@@ -8,6 +8,7 @@ import Footer from "./component/Footer.js"
 
 
 
+
 var App = React.createClass({
 	getInitialState:function(){
 		return {
