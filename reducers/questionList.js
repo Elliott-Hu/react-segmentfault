@@ -1,5 +1,5 @@
 // import { toggleQuestionListType,renderList } from "../action/action.js";
-import { createStore,combineReducers } from "redux";
+// import { createStore,combineReducers } from "redux";
 
 var initialState = {
 	question_type:0,
@@ -46,7 +46,9 @@ function question_type(state = initialState.question_type, action){
 	}
 }
 
-const questionContent = combineReducers({question_type,question_list})
+export { question_list,question_type }
 
-export let store = createStore(questionContent);
+// const questionContent = combineReducers({question_type,question_list})
+
+
 

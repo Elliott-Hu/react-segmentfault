@@ -37,5 +37,6 @@ module.exports = {
   devServer:{
     hot:true,
     inline:true,
+    host:"0.0.0.0"
   }
 }

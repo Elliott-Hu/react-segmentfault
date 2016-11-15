@@ -7,16 +7,24 @@ import LoginModal from "./component/LoginModal.js"
 import Footer from "./component/Footer.js"
 
 
+import store from "./store";
+import { toggleLoginModal } from "./action/action.js"
+
+const ROOT_DATA = store.getState();
+
+
 
 
 var App = React.createClass({
 	getInitialState:function(){
 		return {
-			"loginModalShow":false,
+			"loginModalShow":this.props.store.loginModalShow,
 		}
 	},
 	modalToggle:function(e){
-		this.setState({"loginModalShow":!this.state.loginModalShow});
+		var visibility = !this.state.loginModalShow;
+		store.dispatch(toggleLoginModal(visibility));
+		this.setState({"loginModalShow":store.getState().loginModalShow});
 		e.stopPropagation();
 		return false;
 	},
@@ -32,7 +40,7 @@ var App = React.createClass({
 			<div>
 				<Header modalToggle={this.modalToggle} />
 				<HeaderNav />
-				<Container />
+				<Container store={this.props.store} />
 				<Footer />
 				<LoginModal modalToggle={this.modalToggle} toggle={this.state.loginModalShow} />
 			</div>
@@ -41,6 +49,6 @@ var App = React.createClass({
 })
 
 ReactDOM.render(
-	<App />,
+	<App store={ROOT_DATA} />,
 	document.getElementById("root")
 )

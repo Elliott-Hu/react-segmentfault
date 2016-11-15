@@ -1,4 +1,6 @@
 import React,{Component} from "react";
+import { toggleRankingListType,renderRankingList } from "../action/action.js"
+import store from "../store";
 
 var DATA_RANKINGLIST = [{
 	"avatar":"https://sfault-avatar.b0.upaiyun.com/239/235/2392358811-5805b2d6c1aa2_big64",
@@ -55,20 +57,32 @@ class RankingItem extends Component {
 };
 
 class RankingList extends Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
-			"rank_type":"TODAY",
-			"ranking_list":DATA_RANKINGLIST,
+			"rank_type":this.props.type,
+			"ranking_list":this.props.item,
 		};
 		this.handleClick = this.handleClick.bind(this);
 	};
 	handleClick(event){
 		var val = event.target.getAttribute("value");
-		this.setState({"rank_type":val});
+		if( val == this.state.rank_type ){
+			return false;
+		}
+		/* redux test code */
+		store.dispatch(toggleRankingListType(val));
 
-		var list = DATA_RANKINGLIST.reverse();
-		this.setState({"ranking_list":list});
+		setTimeout(function(){
+			var list = DATA_RANKINGLIST.reverse();
+			store.dispatch(renderRankingList(list));
+			var { rank_type,ranking_list } = store.getState();
+			this.setState({ rank_type,ranking_list });
+		}.bind(this),100);
+
+		/* redux test code */
+		
+
 	};
 	render(){
 		return (
