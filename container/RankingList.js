@@ -1,6 +1,9 @@
-import React,{Component} from "react";
-import { toggleRankingListType,renderRankingList } from "../action/action.js"
+import React,{ Component } from "react";
+
+
+import { toggleRankingListType,renderRankingList } from "../action/action.js";
 import store from "../store";
+import RankingItem from "../component/RankingItem.js";
 
 var DATA_RANKINGLIST = [{
 	"avatar":"https://sfault-avatar.b0.upaiyun.com/239/235/2392358811-5805b2d6c1aa2_big64",
@@ -44,19 +47,8 @@ var DATA_RANKINGLIST = [{
 	"score":"21",
 },];
 
-class RankingItem extends Component {
-	constructor(props){
-		super(props);
-	};
-	render(){
-		return (
-			<li><img src={this.props.data.avatar}/><a>{this.props.data.name}</a><span>+{this.props.data.score}</span></li>
-		)
-	};
-
-};
-
-class RankingList extends Component {
+// 容器组件
+export default class RankingList extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -104,6 +96,3 @@ class RankingList extends Component {
 		)
 	}
 }
-
-
-export default RankingList;

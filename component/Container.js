@@ -1,11 +1,14 @@
 import React,{Component} from "react";
-import QuestionContent from "./QuestionContent.js";
+
+// import component
 import QuickLogin from "./QuickLogin.js";
 import Headline from "./Headline.js";
-import RankingList from "./RankingList.js";
 import Favorite from "./Favorite.js"
 
-
+// import container
+import QuestionContent from "../container/QuestionContent.js";
+import RankingList from "../container/RankingList.js";
+// 展示组件
 const Container = React.createClass({
 	render:function(){
 		return (

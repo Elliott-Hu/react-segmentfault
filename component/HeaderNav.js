@@ -1,5 +1,6 @@
 import React from "react";
 
+// 展示组件
 var HeaderNav = React.createClass({
 	render:function(){
 		return (
