@@ -1,5 +1,5 @@
 import React,{ Component } from "react";
-
+import { connect } from "react-redux";
 
 import { toggleRankingListType,renderRankingList } from "../action/action.js";
 import store from "../store";
@@ -48,28 +48,24 @@ var DATA_RANKINGLIST = [{
 },];
 
 // 容器组件
-export default class RankingList extends Component {
+class RankingList extends Component {
 	constructor(props){
 		super(props);
-		this.state = {
-			"rank_type":this.props.type,
-			"ranking_list":this.props.item,
-		};
 		this.handleClick = this.handleClick.bind(this);
 	};
 	handleClick(event){
 		var val = event.target.getAttribute("value");
-		if( val == this.state.rank_type ){
+		if( val == this.props.rank_type ){
 			return false;
 		}
+		const { toggleRankingListType,renderRankingList } = this.props;
 		/* redux test code */
-		store.dispatch(toggleRankingListType(val));
-
+		
+		
 		setTimeout(function(){
-			var list = DATA_RANKINGLIST.reverse();
-			store.dispatch(renderRankingList(list));
-			var { rank_type,ranking_list } = store.getState();
-			this.setState({ rank_type,ranking_list });
+			DATA_RANKINGLIST.reverse();
+			toggleRankingListType(val);
+			renderRankingList(DATA_RANKINGLIST);
 		}.bind(this),100);
 
 		/* redux test code */
@@ -77,22 +73,44 @@ export default class RankingList extends Component {
 
 	};
 	render(){
+		console.log(this.props);
 		return (
 			<div className="ranking_list">
 				<div className="ranking_header clearfix">
 					<h2 className="fl">排行榜</h2>
 					<div className="ranking_type fr">
-						<a className={this.state.rank_type == "TODAY" ? "active" : ""} onClick={this.handleClick} value="TODAY">今天</a>
+						<a className={this.props.rank_type == "TODAY" ? "active" : ""} onClick={this.handleClick} value="TODAY">今天</a>
 						· 
-						<a className={this.state.rank_type == "WEEK" ? "active" : ""} onClick={this.handleClick} value="WEEK">本周</a>
+						<a className={this.props.rank_type == "WEEK" ? "active" : ""} onClick={this.handleClick} value="WEEK">本周</a>
 						·
 						<a>更多</a>
 					</div>
 				</div>
 				<ol className="ranking_content">
-					{ this.state.ranking_list.map( (item,i) => (<RankingItem key={i} data={item} />) ) }
+					{ this.props.ranking_list.map( (item,i) => (<RankingItem key={i} data={item} />) ) }
 				</ol>
 			</div>
 		)
 	}
 }
+
+
+function mapStateToProps(state){
+	return {
+		rank_type:state.rank_type,
+		ranking_list:state.ranking_list,
+	}
+}
+
+function mapDispatchToProps(dispatch){
+	return {
+		toggleRankingListType:function(type){
+			dispatch(toggleRankingListType(type))
+		},
+		renderRankingList:function(list){
+			dispatch(renderRankingList(list))
+		}
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(RankingList);

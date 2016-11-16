@@ -15,13 +15,13 @@ const Container = React.createClass({
 			<div>
 				<div className="wrap clearfix">
 					<div className="container_left fl">
-						<QuestionContent type={this.props.store.question_type} item={this.props.store.question_list} />
+						<QuestionContent />
 					</div>
 					<div className="container_right fr">
 						<QuickLogin />
 						<div style={{"height":"140px","margin":"30px 0"}}>正在施工</div>
 						<Headline />
-						<RankingList type={this.props.store.rank_type} item={this.props.store.ranking_list} />
+						<RankingList />
 						<Favorite />
 					</div>
 				</div>

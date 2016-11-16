@@ -123,10 +123,11 @@ const QuestionContent = React.createClass({
 
 	},		
 	componentDidMount:function(){
-		const { getQuestionList,type } = this.props;
-		getQuestionList(type);
+		// const { getQuestionList,type } = this.props;
+		// getQuestionList(type);
 	},
 	render:function(){
+		console.log(this.props);
 		var active = this.props.question_type;
 		return (
 			<div>
@@ -159,10 +160,8 @@ function mapDispatchToProps(dispatch){
 		},
 		getQuestionList(type){
 			dispatch(toggleQuestionListType(type));
-			setTimeout(function(){
-				var list = DATA_QUESTION_LIST;
-				dispatch(renderQuestionList(list));
-			}.bind(this),100);
+			var list = DATA_QUESTION_LIST;
+			dispatch(renderQuestionList(list));
 		}
 	}
 }

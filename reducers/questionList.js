@@ -25,6 +25,7 @@ var initialState = {
 }
 
 function question_list(state = initialState.question_list,action){
+
 	switch (action.type){
 		case "RENDER_QUESTION_LIST":
 			return action.question_list;
