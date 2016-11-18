@@ -6,6 +6,7 @@ module.exports = {
     index:"./index.js",
     style:"./style.css",
     vendor:[
+      "babel-polyfill",
       "react",
       "react-dom",
       "react-redux",

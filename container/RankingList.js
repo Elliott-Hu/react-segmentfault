@@ -2,7 +2,6 @@ import React,{ Component } from "react";
 import { connect } from "react-redux";
 
 import { toggleRankingListType,renderRankingList } from "../action/action.js";
-import store from "../store";
 import RankingItem from "../component/RankingItem.js";
 
 var DATA_RANKINGLIST = [{
