@@ -73,7 +73,6 @@ class RankingList extends Component {
 
 	};
 	render(){
-		console.log(this.props);
 		return (
 			<div className="ranking_list">
 				<div className="ranking_header clearfix">

@@ -127,7 +127,6 @@ const QuestionContent = React.createClass({
 		// getQuestionList(type);
 	},
 	render:function(){
-		console.log(this.props);
 		var active = this.props.question_type;
 		return (
 			<div>
@@ -155,7 +154,6 @@ function mapDispatchToProps(dispatch){
 			dispatch(renderQuestionList(list));
 		},
 		toggleQuestionListType(type){
-			console.log(type);
 			dispatch(toggleQuestionListType(type));
 		},
 		getQuestionList(type){

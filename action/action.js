@@ -19,6 +19,23 @@ function renderQuestionList(question_list){
 	}
 }
 
+/* async action test */
+function requestQuestionList(code){
+  return {
+    type:"REQUEST_QUESTION_LIST",
+    code,
+  }
+}
+
+function receiveQuestionList(code,question_list){
+  return {
+    type:"RECEIVE_QUESTION_LIST",
+    code,
+    question_list,
+  }
+}
+/* async action test */ 
+
 // 排行榜
 function toggleRankingListType(code){
   return {
@@ -36,11 +53,14 @@ function renderRankingList(ranking_list){
 
 // 弹窗是否显示
 function toggleLoginModal(visibility){
+
   return {
     type:TOGGLE_LOGIN_MODAL,
     visibility
   }
 }
+
+
 
 
 export { toggleQuestionListType,renderQuestionList }

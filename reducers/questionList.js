@@ -47,7 +47,31 @@ function question_type(state = initialState.question_type, action){
 	}
 }
 
-export { question_list,question_type }
+function questions(state = {
+	isFetching: false,
+	type: 0,
+	question_list : [],
+},action){
+	switch (action.type) {
+		case "REQUEST_QUESTION_LIST":
+			return Object.assign({},state,{
+				isFetching:true
+			})
+			break;
+		case "RECEIVE_QUESTION_LIST":
+			return Object.assign({},state,{
+				isFetching:false,
+				type:action.type,
+				question_list:action.question_list,
+			})
+			break;
+		default:
+			return state;
+			break;
+	}
+}
+
+export { question_list,question_type,questions }
 
 // const questionContent = combineReducers({question_type,question_list})
 
