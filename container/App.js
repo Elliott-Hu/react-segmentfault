@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ Component } from "react";
 import { connect } from "react-redux";
 
 import Header from "../component/Header.js";
@@ -12,22 +12,27 @@ import { toggleLoginModal } from "../action/action.js"
 
 
 // 容器组件
-var App = React.createClass({
-	modalToggle:function(e){
+class App extends Component {
+	constructor(props){
+		super(props);
+		this.modalToggle = this.modalToggle.bind(this);
+		this.bodyOverflow = this.bodyOverflow.bind(this);
+	};
+	modalToggle(e){
 		const { loginModalShow,toggleLoginModal } = this.props;
 
 		var visibility = !loginModalShow;
 		toggleLoginModal(visibility);
 		e.stopPropagation();
 		return false;
-	},
-	bodyOverflow:function(modalShow){
+	};
+	bodyOverflow(modalShow){
 		var overflowY = modalShow ? "hidden" : "scroll";
 		var paddingRight = modalShow ? "17px" : "0";
 		document.body.style.overflowY = overflowY;
 		document.body.style.paddingRight = paddingRight;
-	},
-	render:function(){
+	};
+	render(){
 		this.bodyOverflow(this.props.loginModalShow);
 		return (
 			<div>
@@ -39,7 +44,7 @@ var App = React.createClass({
 			</div>
 		)
 	}
-})
+};
 
 function mapStateToProps(state){
 	return state;

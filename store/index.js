@@ -26,6 +26,11 @@ var promise = new Promise((resolve,reject) => {
 		}
 })
 
-promise.then((data) => { console.log(data+1) })
+promise.then((data)=>{
+	console.log(data+1);
+	return data+1;
+}).then((data)=>{
+	console.log(data+1);
+})
 
 export default store;

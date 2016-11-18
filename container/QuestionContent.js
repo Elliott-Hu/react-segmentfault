@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ Component } from "react";
 import { connect } from "react-redux";
 
 import Question from "../component/Question.js";
@@ -109,29 +109,29 @@ var DATA_QUESTION_LIST = [{
 },]
 
 // 容器组件
-const QuestionContent = React.createClass({
-	getDefaultProps:function(){
-		return {
-			"tab_list":["最新的","热门的","未回答的"],
-		}
-	},
-	handleClick:function(event){
+class QuestionContent extends Component {
+	constructor(props){
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+	};
+	handleClick(event){
 		var question_type = parseInt(event.target.getAttribute("value"),10)
 
 		const { getQuestionList } = this.props;
 		getQuestionList(question_type);
 
-	},		
-	componentDidMount:function(){
+	};	
+	componentDidMount(){
 		// const { getQuestionList,type } = this.props;
 		// getQuestionList(type);
-	},
-	render:function(){
+	};
+	render(){
 		var active = this.props.question_type;
+		var tab_list = ["最新的","热门的","未回答的"];
 		return (
 			<div>
 				<ul className="container_left_nav clearfix">
-					{this.props.tab_list.map((item,index) => (<QuestionTab active={active} key={index} onClick={this.handleClick} value={index} text={item} />) )}
+					{tab_list.map((item,index) => (<QuestionTab active={active} key={index} onClick={this.handleClick} value={index} text={item} />) )}
 				</ul>
 				<div>
 					{this.props.question_list.map((question,key) => (<Question key={key} infos={question} />))}
@@ -139,7 +139,7 @@ const QuestionContent = React.createClass({
 			</div>
 		)
 	}
-})
+}
 
 function mapStateToProps(state){
 	return {

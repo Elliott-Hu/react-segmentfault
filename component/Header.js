@@ -1,22 +1,29 @@
-import React from "react";
+import React,{Component} from "react";
 
 const DATA_TAG_LIST = [
 	{text:"头条"},{text:"问答"},{text:"专栏"},{text:"职位"},{text:"活动"},
 ]
 
-var Tag = React.createClass({
-	handleClick:function(){
+class Tag extends Component {
+	constructor(){
+		super();
+		this.handleClick = this.handleClick.bind(this);
+	};
+	handleClick(){
 		console.log(this.props.text);
-	},
-	render:function(){
+	};
+	render(){
 		return (
 			<li><a onClick={this.handleClick}>{this.props.text}</a></li>
 		)
 	}
-})
+ }
 
-var Header = React.createClass({
-	render:function(){
+class Header extends Component {
+	constructor(props){
+		super(props)
+	};
+	render(){
 		return (
 			<header>
 				<div className="wrap">
@@ -33,14 +40,14 @@ var Header = React.createClass({
 						</form>
 						<ul className="fl">
 							<li className="header_help fl"><a></a></li>
-							<li className="header_login fl"><a onClick={this.props.modalToggle}>注册 · 登录</a></li>
+							<li className="header_login fl"><a onClick={ this.props.modalToggle }>注册 · 登录</a></li>
 						</ul>
 					</div>
 				</div>
 			</header>
 		)
 	}
-});
+};
 
 
 export default Header;
