@@ -49,7 +49,7 @@ function question_type(state = initialState.question_type, action){
 
 function questions(state = {
 	isFetching: false,
-	type: 0,
+	question_type: 0,
 	question_list : [],
 },action){
 	switch (action.type) {
@@ -61,7 +61,7 @@ function questions(state = {
 		case "RECEIVE_QUESTION_LIST":
 			return Object.assign({},state,{
 				isFetching:false,
-				type:action.type,
+				question_type:action.code,
 				question_list:action.question_list,
 			})
 			break;
