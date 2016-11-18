@@ -16,21 +16,4 @@ const store = createStore(reducers,window.__REDUX_DEVTOOLS_EXTENSION__ && window
 );
 
 
-var promise = new Promise((resolve,reject) => {
-		var a = 1;
-		console.log(a);
-		if(a == 1){
-				resolve(a);
-		}else{
-				reject(error);
-		}
-})
-
-promise.then((data)=>{
-	console.log(data+1);
-	return data+1;
-}).then((data)=>{
-	console.log(data+1);
-})
-
 export default store;
