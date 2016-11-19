@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Router,Route,hashHistory } from "react-router";
 
 import { Provider } from "react-redux";
 
@@ -13,7 +14,9 @@ const ROOT_DATA = store.getState();
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<Router history={hashHistory}>
+			<Route path="/" component={App}/>
+		</Router>
 	</Provider>,
 	document.getElementById("root")
 )
