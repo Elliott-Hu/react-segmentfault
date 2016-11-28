@@ -11,12 +11,12 @@ import store from "./store";
 
 const ROOT_DATA = store.getState();
 
-
+//<Router history={hashHistory}>
+//	<Route path="/" component={App}/>
+//</Router>
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={hashHistory}>
-			<Route path="/" component={App}/>
-		</Router>
+		<App />
 	</Provider>,
 	document.getElementById("root")
 )

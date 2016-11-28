@@ -4,11 +4,14 @@ import { connect } from "react-redux";
 import Header from "../component/Header.js";
 import HeaderNav from "../component/HeaderNav.js"
 import Container from "../component/Container.js"
+import { Router,Route,hashHistory } from "react-router";
+
 import LoginModal from "../component/LoginModal.js"
 import Footer from "../component/Footer.js"
 
 
 import { toggleLoginModal } from "../action/action.js"
+
 
 
 // 容器组件
@@ -36,11 +39,11 @@ class App extends Component {
 		this.bodyOverflow(this.props.loginModalShow);
 		return (
 			<div>
-				<Header modalToggle={this.modalToggle} />
-				<HeaderNav />
-				<Container store={this.props} />
-				<Footer />
-				<LoginModal modalToggle={this.modalToggle} toggle={this.props.loginModalShow} />
+					<Header modalToggle={this.modalToggle} />
+					<HeaderNav />
+					<Container store={this.props} />
+					<Footer />
+					<LoginModal modalToggle={this.modalToggle} toggle={this.props.loginModalShow} />
 			</div>
 		)
 	}
