@@ -1,22 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router,Route,hashHistory } from "react-router";
-
 import { Provider } from "react-redux";
 
-import App from "./container/App.js";
+// page
+import Home from "./page/Home.js";
+import News from "./page/News.js";
 
+// store
 import store from "./store";
 
 
 const ROOT_DATA = store.getState();
 
-//<Router history={hashHistory}>
-//	<Route path="/" component={App}/>
-//</Router>
+
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<Router history={hashHistory}>
+			<Route path="/" component={Home} />
+			<Route path="/news" component={News} />
+		</Router>
 	</Provider>,
 	document.getElementById("root")
 )

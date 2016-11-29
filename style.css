@@ -752,3 +752,34 @@ footer{
     color:#999;
     padding-bottom:20px;
 }
+
+
+
+
+
+/*news*/
+.newsBar_nav_main,.newsBar_nav_list{
+    display:inline-block;
+}
+.newsBar_nav_main:after{
+    content:"|";
+    padding:0 10px;
+    color:#EBEBEB;
+}
+.newsBar_nav_main>li{
+    color:#009a61;
+}
+.newsBar_nav_list>li{
+    color:#666;
+}
+.newsBar_nav_main>li,
+.newsBar_nav_list>li{
+    display:inline-block;
+    padding:0 10px;
+    text-align:center;
+    line-height:34px;
+}
+.newsBar_nav_main>li:hover>a,
+.newsBar_nav_list>li:hover>a{
+    text-decoration: underline;
+}

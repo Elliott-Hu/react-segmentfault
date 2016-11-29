@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import Header from "../component/Header.js";
 import HeaderNav from "../component/HeaderNav.js"
 import Container from "../component/Container.js"
-import { Router,Route,hashHistory } from "react-router";
-
 import LoginModal from "../component/LoginModal.js"
 import Footer from "../component/Footer.js"
 
@@ -15,7 +13,7 @@ import { toggleLoginModal } from "../action/action.js"
 
 
 // 容器组件
-class App extends Component {
+class Home extends Component {
 	constructor(props){
 		super(props);
 		this.modalToggle = this.modalToggle.bind(this);
@@ -61,4 +59,4 @@ function mapDispatchToProps(dispatch){
 	}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(Home);
