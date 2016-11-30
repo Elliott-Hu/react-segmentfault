@@ -1,17 +1,19 @@
 import React,{ Component } from "react";
 
+import { Link } from "react-router";
+
 class NewsBar extends Component {
 		constructor(){
 				super();
 		};
 		render(){
 				return (
-						<div>
-								<div className="wrap">
+						<div style={{borderTop:"2px solid #009A61"}}>
+								<div className="wrap" style={{borderBottom:"1px solid #EBEBEB"}}>
 										<ul className="newsBar_nav_main">
-												<li><a>问答</a></li>
-												<li><a>专栏</a></li>
-												<li><a>头条</a></li>
+												<li><Link to="/" style={{color:"#666"}}>问答</Link></li>
+												<li><Link to="/" style={{color:"#666"}}>专栏</Link></li>
+												<li><Link to="/news" style={{color:"#666"}}>头条</Link></li>
 										</ul>
 										<ul className="newsBar_nav_list">
 												<li><a>前端</a></li>

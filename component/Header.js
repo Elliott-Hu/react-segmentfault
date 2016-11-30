@@ -1,7 +1,24 @@
 import React,{Component} from "react";
 
+import { Link } from "react-router";
+
 const DATA_TAG_LIST = [
-	{text:"头条"},{text:"问答"},{text:"专栏"},{text:"职位"},{text:"活动"},
+	{
+		text:"头条",
+		lnk_to:"/news"
+	},{
+		text:"问答",
+		lnk_to:"/"
+	},{
+		text:"专栏",
+		lnk_to:"/"
+	},{
+		text:"职位",
+		lnk_to:"/"
+	},{
+		text:"活动",
+		lnk_to:"/"
+	},
 ]
 
 class Tag extends Component {
@@ -14,7 +31,7 @@ class Tag extends Component {
 	};
 	render(){
 		return (
-			<li><a onClick={this.handleClick}>{this.props.text}</a></li>
+			<li><Link to={this.props.item.lnk_to} onClick={this.handleClick}>{this.props.item.text}</Link></li>
 		)
 	}
  }
@@ -30,7 +47,7 @@ class Header extends Component {
 					<div className="fl">
 						<div><a></a></div>
 						<ul className="header_tag">
-							{ DATA_TAG_LIST.map((item,index) => <Tag key={index} text={item["text"]} />) }
+							{ DATA_TAG_LIST.map((item,index) => <Tag key={index} item={item} />) }
 						</ul>
 					</div>
 					<div className="fr">

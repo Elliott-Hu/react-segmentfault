@@ -1,13 +1,16 @@
 import React,{ Component } from "react";
 import { connect } from "react-redux";
 
-import Header from "../component/Header.js";
-import HeaderNav from "../component/HeaderNav.js"
-import Container from "../component/Container.js"
-import LoginModal from "../component/LoginModal.js"
-import Footer from "../component/Footer.js"
 
-import NewsBar from "../component/NewsBar.js"
+import HeaderNav from "../component/HeaderNav.js"
+
+
+
+import NewsBar from "../component/NewsBar.js";
+import NewsHeader from "../component/NewsHeader.js";
+import NewsContainer from "../component/NewsContainer.js";
+import Footer from "../component/Footer.js";
+import LoginModal from "../component/LoginModal.js"
 
 
 import { toggleLoginModal } from "../action/action.js"
@@ -36,7 +39,9 @@ class News extends Component {
         return (
             <div>
                 <NewsBar />
-                <Header modalToggle={this.modalToggle} />
+                <NewsHeader modalToggle={this.modalToggle} />
+                <NewsContainer store={this.props} />
+                <Footer />
                 <LoginModal modalToggle={this.modalToggle} toggle={this.props.loginModalShow} />
             </div>
         ) 

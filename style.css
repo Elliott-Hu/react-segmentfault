@@ -783,3 +783,32 @@ footer{
 .newsBar_nav_list>li:hover>a{
     text-decoration: underline;
 }
+
+/*NewsHeader*/
+.newsHeader_tag{
+    display:inline-block;
+    height:59px;
+}
+.newsHeader_tag>li{
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:15px;
+    line-height:30px;
+    height:30px;
+    width:74px;
+    font-size:16px;
+    color:#009a61;
+    text-align: center;
+}
+.newsHeader_tag>li:hover{
+    background:#F3F3F3;
+}
+.newsHeader_tag>li.active{
+    color:#666;
+}
+.newsHeader_tag>li.active:hover{
+    background:none;
+}
+.newsHeader_tag>li.active>a{
+    cursor:default;
+}
