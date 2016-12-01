@@ -37,21 +37,6 @@ function receiveQuestionList(code,question_list){
   }
 }
 
-// function fetchQuestionList(){
-//   return new Promise((resolve,reject) => {
-//     var response = {
-//       code:0,
-//       question_list:[],
-//     };
-//     resolve(response);
-//   })
-//     .then(
-//       (questions) => questions,
-//       (error) => ({ type:"FETCH_QUESTION_LIST_FAIL",error }),
-//     ).then(
-//       (data) => { dispatch(receiveQuestionList(data.code,data.question_list)) }
-//     )
-// }
 
 export function fetchQuestionList(code){
   return function(dispatch){

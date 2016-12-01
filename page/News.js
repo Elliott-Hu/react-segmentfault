@@ -7,11 +7,11 @@ import HeaderNav from "../component/HeaderNav.js"
 
 
 import NewsBar from "../component/NewsBar.js";
-import NewsHeader from "../component/NewsHeader.js";
 import NewsContainer from "../component/NewsContainer.js";
 import Footer from "../component/Footer.js";
 import LoginModal from "../component/LoginModal.js"
 
+import NewsHeader from "../container/NewsHeader.js";
 
 import { toggleLoginModal } from "../action/action.js"
 

@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router,Route,hashHistory } from "react-router";
 import { Provider } from "react-redux";
+
+import { Router,Route,browserHistory } from "react-router";
+import { syncHistoryWithStore,routerReducer } from "react-router-redux";
 
 // page
 import Home from "./page/Home.js";
@@ -12,11 +14,11 @@ import store from "./store";
 
 
 const ROOT_DATA = store.getState();
-
+const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={hashHistory}>
+		<Router history={history}>
 			<Route path="/" component={Home} />
 			<Route path="/news" component={News} />
 		</Router>

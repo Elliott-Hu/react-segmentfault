@@ -4,7 +4,7 @@ import React from "react";
 const QuestionTab = React.createClass({
 	render:function(){
 		return (
-			<li><a value={this.props.value} onClick={this.props.onClick} style={{"borderBottom": this.props.active == this.props.value ? "3px solid #009A61" : "3px solid transparent"}}>{this.props.text}</a></li>
+			<li className={this.props.active == this.props.value ? "active" : ""}><a value={this.props.value} onClick={this.props.onClick}>{this.props.text}</a></li>
 		)
 	}
 });

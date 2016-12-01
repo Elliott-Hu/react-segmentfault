@@ -263,6 +263,9 @@ header{
 .container_left_nav>li>a:hover{
     border-bottom:3px solid #009a61!important;
 }
+.container_left_nav>li.active>a{
+    border-bottom:3px solid #009A61;
+}
 
 .question{
     padding:10px 0;
@@ -811,4 +814,61 @@ footer{
 }
 .newsHeader_tag>li.active>a{
     cursor:default;
+}
+
+/*guide*/
+.guide_list h2{
+    font-size:16px;
+    font-weight:normal;
+    margin:20px 0;
+}
+.guide_list>ul>li{
+    margin-left:20px;
+    list-style:disc outside;
+}
+.guide_list>ul>li>a{
+    color:#009a61;
+}
+.guide_list>ul>li>a:hover{
+    color:#004E31;
+    text-decoration: underline;
+}
+
+/*NewsQuestion*/
+.newsQuestion{
+    border-bottom:1px solid #EEEEEE;
+    cursor:pointer;
+}
+.newsQuestion:hover{
+    background:#FFF9EB;
+}
+.newsQuestion_main>h3{
+    margin-bottom:10.5px;
+    font-size:16px;
+    line-height:1.2;
+    font-weight:normal;
+}
+.newsQuestion_main>h3 a{
+    color:#333;
+}
+.newsQuestion_main>h3 a:hover{
+    text-decoration: underline;
+}
+.newsQuestion_main>p{
+    font-size:13px;
+    color:#999999
+}
+.newsQuestion_main>p>a,
+.newsQuestion_main>p>span{
+    margin-right:10px;
+}
+.newsQuestion_main>p>a{
+    color:#009a61;
+}
+.newsQuestion_main>p>a.lnk_src{
+    color:#999999!important;
+}
+.newsQuestion_main>p>a:hover{
+    color:#004E31;
+    text-decoration: underline;
 }

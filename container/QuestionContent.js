@@ -23,8 +23,8 @@ class QuestionContent extends Component {
 
 	};	
 	componentDidMount(){
-		// const { getQuestionList,type } = this.props;
-		// getQuestionList(type);
+		const { getQuestionList } = this.props;
+		getQuestionList(0);
 	};
 	render(){
 		var active = this.props.questions.question_type;
@@ -44,8 +44,6 @@ class QuestionContent extends Component {
 
 function mapStateToProps(state){
 	return {
-		question_type:state.question_type,
-		question_list:state.question_list,
 		questions:state.questions,
 	}
 }
