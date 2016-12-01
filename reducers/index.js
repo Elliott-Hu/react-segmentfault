@@ -4,7 +4,7 @@ import { loginModalShow } from "./loginModal.js";
 import { combineReducers } from "redux";
 
 
-import { Router,Route,browserHistory } from "react-router";
+import { Router,Route,hashHistory } from "react-router";
 import { syncHistoryWithStore,routerReducer } from "react-router-redux";
 
 const reducers = combineReducers({
