@@ -9,8 +9,9 @@ module.exports = {
       "babel-polyfill",
       "react",
       "react-dom",
-      "react-redux",
       "redux",
+      "react-redux",
+      "react-router-redux",
     ]
   },
   output:{
